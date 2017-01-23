@@ -1,0 +1,53 @@
+{
+  "name": "/nerv/demo/nerv-app-springboot",
+  "version": 1,
+  "environment": "ssh",
+  "nodes": [
+    {
+      "name": "nerv-app-springboot",
+      "type": "/nerv/cluster/Process",
+      "parameters": [
+        {
+          "name": "pkg_root",
+          "value": "http://10.211.55.2:3332/pkg"
+        },
+        {
+          "name": "pkg_url",
+          "value": "/nerv-app-springboot-1.0.tgz"
+        },
+        {
+          "name": "root",
+          "value": "./"
+        },
+        {
+          "name": "config_root",
+          "value": "http://10.211.55.2:3332/config"
+        },
+        {
+          "name": "config_url",
+          "value": "/demo/nerv-app-springboot/config.properties"
+        }
+      ],
+      "dependencies": [
+        {
+          "type": "contained",
+          "target": "host"
+        }
+      ]
+    },
+    {
+      "name": "host",
+      "type": "/nerv/cluster/Host",
+      "parameters": [
+        {
+          "name": "address",
+          "value": "centos7.chaosxu.com"
+        },
+        {
+          "name":"credential",
+          "value":"ssh,centos7"
+        }
+      ]
+    }
+  ]
+}
