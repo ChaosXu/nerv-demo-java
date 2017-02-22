@@ -16,6 +16,7 @@
         <script.upload>${project.basedir}/../build/upload.sh</script.upload>
         <nerv.templates.repository>http://localhost:3332/upload/templates</nerv.templates.repository>
         <nerv.scripts.repository>http://localhost:3332/upload/scripts</nerv.scripts.repository>
+        <nerv.pkg.repository>http://localhost:3332/upload/pkg</nerv.pkg.repository>
     </properties>
 
     <profiles>
