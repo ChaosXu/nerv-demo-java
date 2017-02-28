@@ -46,4 +46,9 @@ function each_dir()  {
     done
 }
 
-each_dir $1 $1 upload
+# $3 a file to uplad
+if [[ "$3" != "" && -f $3 ]]; then
+    upload $1 $3
+else
+    each_dir $1 $1 upload
+fi

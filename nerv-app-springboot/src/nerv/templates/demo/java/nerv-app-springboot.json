@@ -1,7 +1,16 @@
 {
   "name": "/nerv/demo/nerv-app-springboot",
   "version": 1,
-  "environment": "ssh",
+  "inputs": [
+    {
+      "name": "host_ip_list",
+      "type": "string[]"
+    },
+    {
+      "name": "host_credential",
+      "type": "string"
+    }
+  ],
   "nodes": [
     {
       "name": "nerv-app-springboot",
@@ -33,15 +42,15 @@
     },
     {
       "name": "host",
-      "type": "/nerv/cluster/Host",
+      "type": "/nerv/compute/Host",
       "parameters": [
         {
           "name": "address",
-          "value": "centos7.chaosxu.com"
+          "value": "${host_ip_list}"
         },
         {
-          "name":"credential",
-          "value":"ssh,centos7"
+          "name": "credential",
+          "value": "${host_credential}"
         }
       ]
     }
