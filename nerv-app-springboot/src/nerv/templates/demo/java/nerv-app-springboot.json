@@ -22,7 +22,7 @@
         },
         {
           "name": "pkg_url",
-          "value": "/pkg//nerv-app-springboot-1.0.tgz"
+          "value": "/pkg/nerv-app-springboot-1.0.tgz"
         },
         {
           "name": "root",
@@ -30,7 +30,7 @@
         },
         {
           "name": "config_url",
-          "value": "/config/demo/nerv-app-springboot/config.properties"
+          "value": "/config/nerv-app-springboot/config.properties"
         }
       ],
       "dependencies": [

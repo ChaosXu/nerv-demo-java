@@ -16,6 +16,7 @@
         <script.upload>${project.basedir}/../build/upload.sh</script.upload>
         <nerv.templates.repository>http://localhost:3332/upload/templates</nerv.templates.repository>
         <nerv.scripts.repository>http://localhost:3332/upload/scripts</nerv.scripts.repository>
+        <nerv.config.repository>http://localhost:3332/upload/config</nerv.config.repository>
         <nerv.pkg.repository>http://localhost:3332/upload/pkg</nerv.pkg.repository>
     </properties>
 
@@ -31,7 +32,7 @@
                         <inherited>false</inherited>
                         <executions>
                             <execution>
-                                <id>upload-nerv-template</id>
+                                <id>upload-template</id>
                                 <phase>install</phase>
                                 <goals>
                                     <goal>run</goal>
@@ -46,7 +47,7 @@
                                 </configuration>
                             </execution>
                             <execution>
-                                <id>upload-nerv-pkg</id>
+                                <id>upload-pkg</id>
                                 <phase>install</phase>
                                 <goals>
                                     <goal>run</goal>
@@ -55,6 +56,20 @@
                                     <target>
                                         <exec executable="${script.upload}" failonerror="true">
                                             <arg line="${project.basedir}/target ${nerv.pkg.repository} ${project.basedir}/target/nerv-app-springboot-1.0.tgz"/>
+                                        </exec>
+                                    </target>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>upload-config</id>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <exec executable="${script.upload}" failonerror="true">
+                                            <arg line="${project.basedir}/src/nerv/config ${nerv.config.repository}"/>
                                         </exec>
                                     </target>
                                 </configuration>
