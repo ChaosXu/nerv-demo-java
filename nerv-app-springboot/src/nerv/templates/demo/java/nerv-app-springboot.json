@@ -5,10 +5,6 @@
     {
       "name": "host_ip_list",
       "type": "string[]"
-    },
-    {
-      "name": "host_credential",
-      "type": "string"
     }
   ],
   "nodes": [
@@ -47,10 +43,6 @@
         {
           "name": "address",
           "value": "${host_ip_list}"
-        },
-        {
-          "name": "credential",
-          "value": "${host_credential}"
         }
       ]
     }

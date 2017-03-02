@@ -37,7 +37,7 @@ The start script must save the pid of application in the log file app.pid. Nerv 
 
 ### Relase
 
-Use maven to release the application
+Start nerv firstly, then use maven to release the application
 
 ```shell
 nerv-demo-java$ cd nerv-app-springboot
@@ -47,16 +47,18 @@ target$ ls
 nerv-app-springboot-1.0.tgz #The package of application
 ```
 
+The release pkg nerv-app-springboot-1.0.tgz will be uplod to path pkg in the nerv server.
+The config will be upload to path /resources/config in the nerv server.
+The template nerv-app-springboot.json will be upload to path /resources/tempaltes in the nerv server
+
 ### Deploy & Start
 
 Please read the nerv [README](https://github.com/ChaosXu/nerv) firstly. Then:
 
-1. Copy nerv-app-springboot.json to NERV_PATH/resources/templates/nerv/demo.
-1. Copy nerv-app-springboot-1.0.tgz to NERV_PATH/pkg.
-1. Create install setup the application:
+Run commands:
 
 ```shell
-bin$ ./nerv-cli topo create -t ../../resources/tempaltes/nerv/nerv-app-srpingboot-1.0.tgz -o nerv-app-springboot
+bin$ ./nerv-cli topo create -t ../../resources/tempaltes/nerv/nerv-app-srpingboot-1.0.tgz -o nerv-app-springboot -n app_inputs.json
 Create topology success. id=2
 bin$ ./nerv-cli topo install -i 2
 Install topology success. id=2
@@ -64,6 +66,16 @@ bin$ ./nerv-cli topo setup -i 2
 Setup topology success. id=2
 bin$ ./nerv-cli topo start -i 2
 Start topology success. id=2
+```
+
+app_inputs.json provid the host ip to be installed
+
+```json
+{
+  "host_ip_list": [
+    "xxxx"
+  ]
+}
 ```
 
 Use curl or browser access the url http://server:8080, the application echo:
@@ -75,4 +87,3 @@ I'm a java app!
 ### Monitoring
 
 TBD
-
