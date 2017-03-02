@@ -14,15 +14,36 @@ Create a nerv template for application in the file /nerv/nerv-app-springboot.jso
 
 ##### node nerv-app-springboot
 
-* pkg_root: The package root url of file service in the nerv server.
+* file_repository: The root url of file service in the nerv server.
 * pkg_url: The package of the application for deploy.
-* config_root: The configuration root url of file service in the nerv server.
 * config_url: The configuration file of the application.
 
 ##### node host
 
 * address: The address of the host where to be deployed
-* credential: The ssh credential key pair of the host. The data is stored in DB
+
+```json
+{
+    "name": "address",
+    "value": "${host_ip_list}"
+}
+```
+
+The varaiable host_ip_list is a input parameter:
+
+```json
+{
+  "name": "/nerv/demo/nerv-app-springboot",
+  "version": 1,
+  "inputs": [
+    {
+      "name": "host_ip_list",
+      "type": "string[]"
+    }
+  ],
+  ...
+}
+```
 
 #### Create a start shell script
 
