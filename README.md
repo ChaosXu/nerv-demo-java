@@ -68,9 +68,9 @@ target$ ls
 nerv-app-springboot-1.0.tgz #The package of application
 ```
 
-The release pkg nerv-app-springboot-1.0.tgz will be uplod to path pkg in the nerv server.
-The config will be upload to path /resources/config in the nerv server.
-The template nerv-app-springboot.json will be upload to path /resources/tempaltes in the nerv server
+1. The release pkg nerv-app-springboot-1.0.tgz will be uplod to path pkg in the nerv server.
+1. The config will be upload to path /resources/config in the nerv server.
+1. The template nerv-app-springboot.json will be upload to path /resources/tempaltes in the nerv server
 
 ### Deploy & Start
 
