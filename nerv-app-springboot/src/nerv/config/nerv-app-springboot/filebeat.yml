@@ -1,0 +1,4 @@
+filebeat.prospectors:
+- input_type: log
+  paths:
+    - nerv/nerv-app-springboot/*.log

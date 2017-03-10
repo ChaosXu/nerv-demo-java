@@ -9,12 +9,36 @@
   ],
   "nodes": [
     {
-      "name": "nerv-app-springboot",
-      "type": "/nerv/cluster/Process",
+      "name": "collectLog",
+      "type": "/nerv/monitor/Log",
       "parameters": [
         {
-          "name":"file_repository",
-          "value":"http://10.211.55.2:3332"
+          "name": "file_repository",
+          "value": "http://10.211.55.2:3332"
+        },
+        {
+          "name": "config_url",
+          "value": "/config/nerv-app-springboot/filebeat.yml"
+        },
+        {
+          "name": "root",
+          "value": "nervapp/"
+        }
+      ],
+      "dependencies": [
+        {
+          "type": "contained",
+          "target": "nerv-app-springboot"
+        }
+      ]
+    },
+    {
+      "name": "nerv-app-springboot",
+      "type": "/nerv/compute/Process",
+      "parameters": [
+        {
+          "name": "file_repository",
+          "value": "http://10.211.55.2:3332"
         },
         {
           "name": "pkg_url",
@@ -22,7 +46,7 @@
         },
         {
           "name": "root",
-          "value": "nerv/"
+          "value": "nervapp/"
         },
         {
           "name": "config_url",
